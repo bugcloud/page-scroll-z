@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.6, maximum-scale=1.2">
+    <title>.pageScrollZ - jQuery Plugin</title>
+    <link href="//code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" rel="stylesheet"/>
+    <link href="style/style.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <section data-role="page" id="top-page">
+      <div data-role="header">
+        <h1 class="title">.pageScrollZ - jQuery Plugin</h1>
+      </div>
+      <div data-role="content">
+        <ul data-role="listview" data-inset="true">
+          <li><a href="#first-page" data-transition="slide">First Page</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section data-role="page" id="first-page">
+      <div data-role="header">
+        <h1 class="title">.pageScrollZ | First Page</h1>
+        <a href="#" data-rel="back">Back</a>
+      </div>
+      <div data-role="content" class="main">
+        <div class="content-nav">
+          <div data-role="controlgroup" data-type="horizontal">
+            <h2>Animation</h2>
+            <a href="#" data-role="button" data-icon="plus" id="switchAnimationOn">On</a>
+            <a href="#" data-role="button" data-icon="minus" id="switchAnimationOff">Off</a>
+          </div>
+          <div data-role="controlgroup" data-type="horizontal">
+            <h2>Internal Hash Links</h2>
+            <a href="#section1" data-role="button" data-theme="b" class="page-scroll-z">Section 1</a>
+            <a href="#section2" data-role="button" data-theme="b" class="page-scroll-z">Section 2</a>
+            <a href="#section3" data-role="button" data-theme="b" class="page-scroll-z">Section 3</a>
+            <a href="#section4" data-role="button" data-theme="b" class="page-scroll-z">Section 4</a>
+            <a href="#section5" data-role="button" data-theme="b" class="page-scroll-z">Section 5</a>
+          </div>
+        </div>
+
+        <div data-role="collapsible-set">
+          <div data-role="collapsible" data-collapsed="false" id="section1">
+            <h2>Section 1</h2>
+            <p>This is the content of section1.</p>
+          </div>
+          <div data-role="collapsible" id="section2">
+            <h2>Section 2</h2>
+            <p>This is the content of section2.</p>
+            <p>This is the content of section2.</p>
+          </div>
+          <div data-role="collapsible" id="section3">
+            <h2>Section 3</h2>
+            <p>This is the content of section3.</p>
+            <p>This is the content of section3.</p>
+            <p>This is the content of section3.</p>
+          </div>
+          <div data-role="collapsible" id="section4">
+            <h2>Section 4</h2>
+            <p>This is the content of section4.</p>
+            <p>This is the content of section4.</p>
+            <p>This is the content of section4.</p>
+            <p>This is the content of section4.</p>
+          </div>
+          <div data-role="collapsible" id="section5">
+            <h2>Section 5</h2>
+            <p>This is the content of section5.</p>
+            <p>This is the content of section5.</p>
+            <p>This is the content of section5.</p>
+            <p>This is the content of section5.</p>
+          </div>
+        </div>
+        <div class="spacer">
+          <p>This is the content of 1st page.</p>
+          <p>This is the content of 1st page.</p>
+          <p>This is the content of 1st page.</p>
+          <p>This is the content of 1st page.</p>
+          <p>This is the content of 1st page.</p>
+        </div>
+      </div>
+      <div data-role="footer" data-theme="c">
+        <h2><a href="https://github.com/bugcloud/page-scroll-z" rel="external">pageScrollZ on GitHub</a></h2>
+      </div>
+    </section>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+    <script src="//code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+    <script src="js/jquery.pageScrollZ.js"></script>
+    <script>
+      $(function() {
+        var z = $("a.page-scroll-z").pageScrollZ();
+        $("#switchAnimationOff").on('click', function() {
+          z.switchAnimation(false);
+        });
+        $("#switchAnimationOn").on('click', function() {
+          z.switchAnimation(true);
+        });
+      });
+    </script>
+
+  </body>
+</html>
