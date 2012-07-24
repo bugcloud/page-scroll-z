@@ -1,7 +1,7 @@
 # pageScrollZ - jQuery Plugin
 
-ページ内へのid指定リンクをスクロールスクロールして移動させるjQueryプラグインです。
-jQuery Mobileと共存できるように、対象のリンクをしぼって適用できます。
+ページ内へのid指定リンクをスクロールして移動させるjQueryプラグインです。
+jQuery Mobileと一緒に使っても問題ないように、対象のリンクをしぼって適用できます。
 
 ## How to use
 HTMLでscriptを読み込みます。easingプラグインを使えます。
@@ -17,10 +17,7 @@ $(SELECTOR).pageScrollZ()でクリック時に
 
 ```javascript
 $(function() {
-  $("a.page-scroll-z").pageScrollZ({
-    animationSpeed: 800,
-    easingFunction: "easeOutBack"
-  })
+  $("a.page-scroll-z").pageScrollZ()
 })
 ```
 
