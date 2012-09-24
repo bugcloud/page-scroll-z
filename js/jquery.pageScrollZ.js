@@ -19,7 +19,8 @@ https://github.com/bugcloud/page-scroll-z
       scrollContent: "html, body",
       animation: true,
       animationSpeed: 500,
-      easingFunction: "swing"
+      easingFunction: "swing",
+      fixTop: "0"
     };
     options = $.extend({}, default_options, opt);
     obj = {};
@@ -27,13 +28,21 @@ https://github.com/bugcloud/page-scroll-z
     $_scroll = $(options.scrollContent);
     obj.animation = options.animation;
     $_that.off('click').on('click', function(e) {
-      var $target, duration, props, targetOffsetTop;
+      var $target, duration, fix, props, targetOffsetTop;
       e.stopPropagation();
       e.preventDefault();
       $target = $("" + ($(this).attr('href')));
       targetOffsetTop = 0;
       if ($target && $target.offset()) {
         targetOffsetTop = $target.offset().top;
+        fix = 0;
+        if (options.fixTop) {
+          fix = parseInt(options.fixTop);
+        }
+        if (fix !== 0) {
+          targetOffsetTop = targetOffsetTop + fix;
+        }
+        console.log(targetOffsetTop);
       }
       duration = obj.animation ? options.animationSpeed : 0;
       $_scroll.stop(false, false);

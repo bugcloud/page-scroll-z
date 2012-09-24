@@ -12,6 +12,7 @@ $.fn.pageScrollZ = (opt) ->
     animation: true
     animationSpeed: 500
     easingFunction: "swing"
+    fixTop: "0"
 
   options = $.extend {}, default_options, opt
   obj = {}
@@ -24,7 +25,13 @@ $.fn.pageScrollZ = (opt) ->
     e.preventDefault()
     $target = $("#{$(this).attr('href')}")
     targetOffsetTop = 0
-    targetOffsetTop = $target.offset().top if $target and $target.offset()
+    if $target and $target.offset()
+      targetOffsetTop = $target.offset().top
+      fix = 0
+      if options.fixTop
+        fix = parseInt(options.fixTop)
+      targetOffsetTop = targetOffsetTop + fix unless fix is 0
+      console.log targetOffsetTop
     duration = if obj.animation then options.animationSpeed else 0
     $_scroll.stop(false, false)
     props =
