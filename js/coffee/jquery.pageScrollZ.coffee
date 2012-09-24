@@ -23,7 +23,8 @@ $.fn.pageScrollZ = (opt) ->
     e.stopPropagation()
     e.preventDefault()
     $target = $("#{$(this).attr('href')}")
-    targetOffsetTop = $target.offset().top
+    targetOffsetTop = 0
+    $target.offset().top if $target and $target.offset()
     duration = if obj.animation then options.animationSpeed else 0
     $_scroll.stop(false, false)
     props =

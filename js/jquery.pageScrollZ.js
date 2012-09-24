@@ -31,7 +31,10 @@ https://github.com/bugcloud/page-scroll-z
       e.stopPropagation();
       e.preventDefault();
       $target = $("" + ($(this).attr('href')));
-      targetOffsetTop = $target.offset().top;
+      targetOffsetTop = 0;
+      if ($target && $target.offset()) {
+        $target.offset().top;
+      }
       duration = obj.animation ? options.animationSpeed : 0;
       $_scroll.stop(false, false);
       props = {
