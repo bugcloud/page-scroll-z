@@ -21,6 +21,13 @@ $(function() {
 })
 ```
 
+hrefにフルのURLを指定した場合でも動作します。
+指定先が別階層のページだった場合、リダイレクトされます。
+```html
+<a href="#section2" data-role="button" data-theme="b" class="page-scroll-z">#2</a>
+<a href="http://yourdomain.xxx/#section3" data-role="button" data-theme="b" class="page-scroll-z">#3</a>
+```
+
 ## Options
 
 *scrollContent*
