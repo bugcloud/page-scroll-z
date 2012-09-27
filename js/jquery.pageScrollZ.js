@@ -31,7 +31,10 @@ https://github.com/bugcloud/page-scroll-z
       var $target, duration, fix, props, targetOffsetTop;
       e.stopPropagation();
       e.preventDefault();
-      $target = $("" + ($(this).attr('href')));
+      $target = $("" + ($(this).attr('href').replace(window.location.origin + window.location.pathname, '')));
+      if (!($target.length > 0)) {
+        window.location.replace($(this).attr('href'));
+      }
       targetOffsetTop = 0;
       if ($target && $target.offset()) {
         targetOffsetTop = $target.offset().top;

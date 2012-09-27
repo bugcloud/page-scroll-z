@@ -23,7 +23,8 @@ $.fn.pageScrollZ = (opt) ->
   $_that.off('click').on 'click', (e) ->
     e.stopPropagation()
     e.preventDefault()
-    $target = $("#{$(this).attr('href')}")
+    $target = $("#{$(this).attr('href').replace(window.location.origin + window.location.pathname, '')}")
+    window.location.replace($(this).attr 'href') unless $target.length > 0
     targetOffsetTop = 0
     if $target and $target.offset()
       targetOffsetTop = $target.offset().top
