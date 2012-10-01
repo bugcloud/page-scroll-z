@@ -23,7 +23,7 @@ $.fn.pageScrollZ = (opt) ->
   $_that.off('click').on 'click', (e) ->
     e.stopPropagation()
     e.preventDefault()
-    $target = $("#{$(this).attr('href').replace(window.location.origin + window.location.pathname, '')}")
+    $target = $("#{$(this).attr('href').replace(window.location.protocol + "//" + window.location.host + window.location.pathname, '')}")
     window.location.replace($(this).attr 'href') unless $target.length > 0
     targetOffsetTop = 0
     if $target and $target.offset()
@@ -32,7 +32,6 @@ $.fn.pageScrollZ = (opt) ->
       if options.fixTop
         fix = parseInt(options.fixTop)
       targetOffsetTop = targetOffsetTop + fix unless fix is 0
-      console.log targetOffsetTop
     duration = if obj.animation then options.animationSpeed else 0
     $_scroll.stop(false, false)
     props =
